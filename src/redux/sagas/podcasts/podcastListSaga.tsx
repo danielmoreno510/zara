@@ -4,16 +4,26 @@ import { putPodcastList } from '../../actions';
 import { PODCASTS } from '../../actions/types';
 import { getPodcastList } from '../../../services/api/podcastService';
 import { handleHttpError } from '../../../services/httpUtils';
-import { IPodcastList, TPodcastListSaga } from '@/types/podcasts';
+import { IPodcast, IPodcastList, TPodcastaga } from '@/types/podcasts';
+import { getPodcastListStore, setPodcastListStore } from '@/utils/localStorageUtils';
+import { KeysEnum } from '@/types/localStorage';
 
-export function* fetchPodcastList(): Generator<TPodcastListSaga, void, IPodcastList> {
+export function* fetchPodcastList(): Generator<TPodcastaga, void, IPodcastList> {
   const context = 'fetchPodcastList saga';
 
   try {
-    const response: IPodcastList = yield call(getPodcastList);
+    let data: IPodcast[];
+    const podcastListStore = getPodcastListStore()
+    if (podcastListStore) {
+      data = podcastListStore
+    } else {
+      const response: IPodcastList = yield call(getPodcastList);
+      data = response.feed.entry;
+      setPodcastListStore(data)
+    }
 
     // Dispatches an action to get the node data to the state tree.
-    yield put(putPodcastList(response.feed.entry));
+    yield put(putPodcastList(data));
   } catch (error: unknown) {
     yield put(putPodcastList([]));
     handleHttpError(error as IHttpError, context);

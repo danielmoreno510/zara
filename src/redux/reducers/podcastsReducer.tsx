@@ -16,6 +16,7 @@ export default (state = initialState, action: IPodcastReducer) =>
     switch (action.type) {
       case PODCASTS.FETCH_PODCAST_LIST:
         draft.isFetchingPodcastList = true;
+        draft.isFetchingPodcastDetails = false;
         break;
       case PODCASTS.PUT_PODCAST_LIST:
         draft.podcastList = action.podcastList;
@@ -26,6 +27,7 @@ export default (state = initialState, action: IPodcastReducer) =>
         break;
       case PODCASTS.FETCH_PODCAST_DETAILS:
         draft.isFetchingPodcastDetails = true;
+        draft.isFetchingPodcastList = false;
         break;
       case PODCASTS.PUT_PODCAST_DETAILS:
         draft.podcastDetails = action.podcastDetails;

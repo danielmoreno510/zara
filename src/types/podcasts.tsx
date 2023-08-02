@@ -54,6 +54,7 @@ export interface IPodcastDetailsResponse {
 }
 
 export interface IPodcastTrack {
+  trackId: number;
   artistName: string;
   collectionName: string;
   artworkUrl600: string;
@@ -69,7 +70,7 @@ export interface IPodcastDetails {
   genres: { name: string }[];
 }
 
-export type TPodcastListSaga = PutEffect<{ type: string; podcastList?: IPodcast[] }> | CallEffect<IPodcastListResponse>;
+export type TPodcastaga = PutEffect<{ type: string }> | CallEffect<IPodcastListResponse>;
 
 export interface IPodcastInitialState {
   isFetchingPodcastList?: boolean;
