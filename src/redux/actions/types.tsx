@@ -1,0 +1,8 @@
+// Podcasts --------------------------------------------------------------------------
+export enum PODCASTS {
+    FETCH_PODCAST_LIST = 'FETCH_PODCAST_LIST',
+    PUT_PODCAST_LIST = 'PUT_PODCAST_LIST',
+    PUT_FILTER_PODCAST_LIST = 'PUT_FILTER_PODCAST_LIST',
+    FETCH_PODCAST_DETAILS = 'FETCH_PODCAST_DETAILS',
+    PUT_PODCAST_DETAILS = 'PUT_PODCAST_DETAILS',
+}
