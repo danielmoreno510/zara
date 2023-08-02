@@ -1,4 +1,4 @@
-import { IStoragePodcastDetails, KeysEnum } from '@/types/localStorage';
+import { KeysEnum } from '@/types/localStorage';
 import { IPodcast, IPodcastDetails, IPodcastTrack } from '@/types/podcasts';
 
 export function setWithExpiry(value: any) {

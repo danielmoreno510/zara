@@ -10,9 +10,9 @@ const logger = createLogger();
 
 const sagaMiddleware = createSagaMiddleware();
 
-let composed = compose(applyMiddleware(logger, sagaMiddleware));
+let composed = compose(applyMiddleware(sagaMiddleware));
 
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV !== 'production') {
   composed = compose(applyMiddleware(logger, sagaMiddleware));
 }
 

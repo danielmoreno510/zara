@@ -1,8 +1,8 @@
 import PodcastList from './PodcastList';
 import { StoreService } from '@/redux/StoreService';
-import { fetchPodcastList, putFilterPodcastList, fetchPodcastDetails } from '@/redux/actions';
+import { fetchPodcastList, putFilterPodcastList } from '@/redux/actions';
 import { IPodcastReducer, IPodcastListDispatchProps, IPodcastListStateProps, IPodcastInitialState } from '@/types/podcasts';
-import { getPodcastList } from '../selectors/podcastsSelectors';
+import { getPodcastList } from '../../redux/selectors/podcastsSelectors';
 
 export const mapStateToProps = (state: IPodcastListStateProps): IPodcastInitialState => ({
   isFetchingPodcastList: state.podcasts.isFetchingPodcastList,

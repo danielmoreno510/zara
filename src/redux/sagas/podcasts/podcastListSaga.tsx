@@ -6,7 +6,6 @@ import { getPodcastList } from '../../../services/api/podcastService';
 import { handleHttpError } from '../../../services/httpUtils';
 import { IPodcast, IPodcastList, TPodcastaga } from '@/types/podcasts';
 import { getPodcastListStore, setPodcastListStore } from '@/utils/localStorageUtils';
-import { KeysEnum } from '@/types/localStorage';
 
 export function* fetchPodcastList(): Generator<TPodcastaga, void, IPodcastList> {
   const context = 'fetchPodcastList saga';

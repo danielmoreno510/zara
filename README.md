@@ -1,34 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Este es un proyecto desarrollado con Next.Js
+## Ejecutar
 
-## Getting Started
-
-First, run the development server:
+ambiente de desarrollo:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ambiente de producción:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Librerías
 
-## Learn More
+para el desarrollo de esta aplicación se usaron las siguientes librerías:
 
-To learn more about Next.js, take a look at the following resources:
+- Redux (Sagas)
+- Axios
+- immer
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Metodología
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Se implementó redux para manejar el estado de la aplicación, cuando se ejecuta una acción y la saga es disparada se hace la validación de los datos en el localStorage si existen y tienen menos de un día esos datos serán obtenidos y se guardarán en el store de redux, si no existen datos, se consumirá el servicio para obtenerlos y guardarlos en el localStorage
 
-## Deploy on Vercel
+En patrones de diseño se implementó: composición, propagación y la separación de componentes contenedores y componentes de presentación
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Se implementó un HOC para el componente del Loading indicator, adicionalmente se usó typescript con sus respectivos tipos de datos
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Se creó el archivo _app.tsx para agregar un layout y manejar la aplicación como SPA

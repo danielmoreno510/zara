@@ -1,7 +1,7 @@
 import InputSearch from '@/components/InputSearch';
 import PodcastCard from '@/components/PodcastCard';
 import LoadingIndicator from '@/components/common/LoadingIndicator.tsx';
-import { IPodcastListDispatchProps, IPodcastInitialState, IPodcast } from '@/types/podcasts';
+import { IPodcastListDispatchProps, IPodcastInitialState } from '@/types/podcasts';
 import React from 'react';
 
 const PodcastList: React.FC<IPodcastInitialState & IPodcastListDispatchProps> = ({
@@ -22,7 +22,7 @@ const PodcastList: React.FC<IPodcastInitialState & IPodcastListDispatchProps> = 
         <InputSearch value={filter!} setValue={filterPodcast} />
       </div>
       <div className="mt-4 flex flex-wrap justify-between">
-        {podcastList!.map((podcast) => (
+        {(podcastList || []).map((podcast) => (
           <PodcastCard podcast={podcast} key={podcast.id.label} />
         ))}
       </div>

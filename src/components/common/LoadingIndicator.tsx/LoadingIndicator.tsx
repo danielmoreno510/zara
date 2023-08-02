@@ -1,4 +1,3 @@
-import Spinner from "@/components/Spinner";
 import { ElementType } from "react";
 
 const LoadingIndicator = (Component: ElementType ) => {
